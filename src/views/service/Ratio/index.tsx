@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
-import './style.css';
-import SelectBox from 'src/components/Selectbox';
-import { BarElement, CategoryScale, Chart as ChartJS, Legend, LineElement, LinearScale, PointElement, Tooltip } from 'chart.js';
-import { Bar, Line } from 'react-chartjs-2';
+import { useState } from 'react';
 import { useCookies } from 'react-cookie';
-import { getRatioDataRequest } from 'src/apis/estate';
-import { GetRatioDataResponseDto } from 'src/apis/estate/dto/response';
+import { Bar, Line } from 'react-chartjs-2';
+
+import { 
+    Legend, 
+    Tooltip,
+    BarElement, 
+    LineElement, 
+    LinearScale, 
+    PointElement, 
+    CategoryScale, 
+    Chart as ChartJS, 
+} from 'chart.js';
+
+import SelectBox from 'src/components/Selectbox';
+
 import ResponseDto from 'src/apis/response.dto';
+import { GetRatioDataResponseDto } from 'src/apis/estate/dto/response';
+
+import { getRatioDataRequest } from 'src/apis/estate';
+
+import './style.css';
 
 ChartJS.register(
     CategoryScale,
@@ -33,19 +47,17 @@ export default function Ratio() {
     const [yearMonth, setYearMonth] = useState<string[]>([]);
 
     const [return40, setReturn40] = useState<number[]>([]);
+    const [return85, setReturn85] = useState<number[]>([]);
     const [return4060, setReturn4060] = useState<number[]>([]);
     const [return6085, setReturn6085] = useState<number[]>([]);
-    const [return85, setReturn85] = useState<number[]>([]);
-
     const [leaseRatio40, setLeaseRatio40] = useState<number[]>([]);
+    const [leaseRatio85, setLeaseRatio85] = useState<number[]>([]);
     const [leaseRatio4060, setLeaseRatio4060] = useState<number[]>([]);
     const [leaseRatio6085, setLeaseRatio6085] = useState<number[]>([]);
-    const [leaseRatio85, setLeaseRatio85] = useState<number[]>([]);
-
     const [monthRentRatio40, setMonthRentRatio40] = useState<number[]>([]);
+    const [monthRentRatio85, setMonthRentRatio85] = useState<number[]>([]);
     const [monthRentRatio4060, setMonthRentRatio4060] = useState<number[]>([]);
     const [monthRentRatio6085, setMonthRentRatio6085] = useState<number[]>([]);
-    const [monthRentRatio85, setMonthRentRatio85] = useState<number[]>([]);
 
     //                    function                    //
     const getRatioDataResponse = (result: GetRatioDataResponseDto | ResponseDto | null) => {

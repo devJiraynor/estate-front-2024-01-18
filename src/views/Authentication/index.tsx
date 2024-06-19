@@ -421,7 +421,7 @@ export default function Authentication() {
             <div className="authentication-box">
                 <div className="authentication-container">
                     <div className="authentication-title h1">
-                        {"임대 주택 가격서비스"}
+                        {"~임대 주택 가격서비스~"}
                     </div>
                     { AuthenticationContents }
                 </div>
